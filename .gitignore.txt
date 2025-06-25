@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+*.suo
+
+# Build folders
+bin/
+obj/
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Environment/config with secrets
+appsettings.Development.json

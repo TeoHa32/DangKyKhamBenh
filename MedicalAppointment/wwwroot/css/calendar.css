@@ -1,0 +1,80 @@
+﻿.current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.calendar {
+    padding: 20px;
+}
+
+.calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar li {
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    cursor: default;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: #0dcaf0;
+}
+.days li.border-active {
+    color: red;
+}
+.days li.none-click {
+    color: #aaa;
+    pointer-events: none;
+}
+
+.days li.border-active::before {
+    border: 1px solid #0dcaf0;
+}
+
+.days li:not(.active):hover::before {
+    background: #f2f2f2;
+}
+
+
+/*// CSS for animation (replace with your desired animation styles)*/
+

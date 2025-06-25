@@ -1,0 +1,41 @@
+﻿@model MedicalAppointment.Models.Appointment
+@{
+    ViewData["Title"] = "Nội dung Phiếu khám bệnh";
+}
+<link href="./css/payment.css" rel="stylesheet" />
+<table class="table">
+    <tr>
+        <th>Tên bệnh nhân</th>
+        <td>@Model.ApplicationUser?.FullName</td>
+        <td hidden class="username">@Model.ApplicationUser?.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Ngày đăng kí</th>
+        <td>@String.Format("{0:dd/MM/yyyy}", @Model.RegistrationDate) </td>
+    </tr>
+    <tr>
+        <th>Tình trạng sức khoẻ</th>
+        <td>@Model.Symptom</td>
+    </tr>
+    <tr>
+        <th>Khoa khám</th>
+        <td class="department">@Model.Specialization?.Name</td>
+    </tr>
+    <tr>
+        <th>Tiền cần thanh toán</th>
+        <td class="price">@Model.Specialization?.Price</td>
+    </tr>
+</table>
+<div class="overlay" id="overlay" style="display:none;"></div>
+<button class="btn-thanhtoan">Thanh toán</button>
+<div class="course_qr b" style="display:none;">
+    <img class="img_qr" src="https://a.travel-assets.com/mad-service/qr-code/app_landing/qrcode_1_T2DVsQrCodeV2.png" alt="">
+
+    <p>Nội dung chuyển khoản: <span id="paid_content">NDCK</span></p>
+    <p>Quá trình thanh toán thường không đến 5p</p>
+    <p>Số tiền: <span id="paid_price"></span></p>
+    <p>Mã này có thể thanh toán cho tất cả các ví điện tử và app bangking!!!</p>
+</div>
+</div>
+<script src="./js/payment.js"></script>
+<script src="./js/sweetalert2@11.js"></script>

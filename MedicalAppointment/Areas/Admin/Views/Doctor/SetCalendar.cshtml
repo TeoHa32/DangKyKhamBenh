@@ -1,0 +1,92 @@
+﻿@model MedicalAppointment.Models.ViewModels.ShiftScheduleVM
+<div class="col-md-12 w-100 position-relative">
+    <div class="container">
+        <h3>Lịch trực</h3>
+        <div class="col-md-6 mx-auto border p-3">
+            <div class="pt-3 text-center">
+                <p class="current-date text-info"></p>
+                <div class="icons">
+                    <span id="prev" class="material-symbols-rounded btn">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        <b>Tháng trước</b>
+                    </span>
+                    <span id="next" class="material-symbols-rounded btn">
+                        <b>Tháng sau</b>
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="calendar">
+                <ul class="weeks list-unstyled">
+                    <li class="text-danger">CN</li>
+                    <li>Thứ 2</li>
+                    <li>Thứ 3</li>
+                    <li>Thứ 4</li>
+                    <li>Thứ 5</li>
+                    <li>Thứ 6</li>
+                    <li class="text-warning">Thứ 7</li>
+                </ul>
+                
+                <ul class="days list-unstyled"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="formBox p-3 mt-5">
+        <form id="formCreate" class="mx-auto col-md-5 mt-5 shadow" asp-action="SetCalendar">
+            <div class="mb-3">
+                <label class="control-label">Bác sĩ</label>
+                <select asp-for="UserId" id="userid" class="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="mb-3">
+                <label class="control-label">Ngày khám</label>
+                <input asp-for="AppointmentDate" id="datetime" type="date" class="form-control" readonly/>
+            </div>
+            <h5 class="mx-auto">Ca trực</h5>
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="7:00-9:00"/>
+                    <label class="form-check-label" for="grantShift7am-9am">7:00-9:00</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="9:00-11:00"/>
+                    <label class="form-check-label" for="grantShift9am-11am">9:00-11:00</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="13:00-15:00"/>
+                    <label class="form-check-label" for="grantShift1pm-3pm">13:00-15:00</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="15:00-17:00"/>
+                    <label class="form-check-label" for="grantShift3pm-5pm">15:00-17:00</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <a class="container btn btn-outline-danger" id="close">Huỷ</a>
+                </div>
+                <div class="col-md-6">
+                    <button class="container btn btn-primary">Lưu</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .formBox {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0px;
+        z-index: 10;
+        display: none;
+    }
+
+    #formCreate {
+        border-radius: 4px;
+        border: 1px solid #e1e1e1;
+        background: #e7e7e7;
+        padding: 30px;
+    }
+</style>

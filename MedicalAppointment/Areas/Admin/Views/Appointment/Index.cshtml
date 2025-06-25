@@ -1,0 +1,55 @@
+@model IEnumerable<MedicalAppointment.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách phiếu khám bệnh</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Người đăng kí
+            </th>
+            
+            <th>
+                Chuyên khoa
+            </th>
+            <th>
+                Ngày khám
+            </th>
+            <th>
+                Giờ khám
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.ApplicationUser?.FullName
+            </td>
+
+            <td>
+                @item.Specialization?.Name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Chỉnh sửa</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">Chi tiết</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Xoá</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

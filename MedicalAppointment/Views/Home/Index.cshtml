@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="banner-box">
+    <div class="banner">
+        <div class="btn-link">
+            <a asp-controller="Registration" asp-action="Create" class="btn btn-info p-2 text-light px-3">Đăng kí khám bệnh</a>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 row mx-auto">
+    <div class="col-md-4">
+        <div class="container p-3">
+            <div class="shadow-sm">
+                <a asp-controller="Doctor" asp-action="Index">
+                    <img id="card-image" class="card-img-top w-100" src="~/images/system/doctor.jpg">
+                </a>
+                <div class="card-body">
+                    <a asp-controller="Doctor" asp-action="Index" class="text-decoration-none">
+                        <h4 class="card-title text-dark">Đội ngũ bác sĩ</h4>
+                    </a>
+                    <p class="card-text">Tìm kiếm theo tên, chuyên ngành, địa điểm và hơn thế nữa.</p>
+                    <a asp-controller="Doctor" asp-action="Index" class="btn btn-primary">Tìm bác sĩ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="container p-3">
+            <div class="shadow-sm">
+                <a href="https://maps.app.goo.gl/bAPURQtJM4yfvTLo6" target="_blank">
+                    <img id="card-image" class="card-img-top w-100" src="~/images/system/location.jpg">
+                </a>
+                <div class="card-body">
+                    <a href="https://maps.app.goo.gl/bAPURQtJM4yfvTLo6" class="text-decoration-none" target="_blank">
+                        <h4 class="card-title text-dark">Địa điểm & chỉ đường</h4>
+                    </a>
+                    <p class="card-text">Địa điểm và vị trí của phòng khám trên google map.</p>
+                    <a href="https://maps.app.goo.gl/bAPURQtJM4yfvTLo6" class="btn btn-primary" target="_blank">Tìm đường</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="container p-3">
+            <div class="shadow-sm">
+                <a asp-controller="Registration" asp-action="Create">
+                    <img id="card-image" class="card-img-top w-100 " src="~/images/system/appointment.jpg">
+                </a>
+                <div class="card-body">
+                    <a asp-controller="Registration" asp-action="Create" class="text-decoration-none">
+                        <h4 class="card-title text-dark">Đặt cuộc hẹn</h4>
+                    </a>
+                    <p class="card-text">Đặt lịch khám bệnh ngay để lựa chọn ngày khám.</p>
+                    <a asp-controller="Registration" asp-action="Create" class="btn btn-primary">Lên lịch ngay bây giờ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .banner-box{
+        width:100%;
+    }
+    .banner {
+        position: relative;
+        background-image: url(https://my.clevelandclinic.org/-/scassets/images/org/hero/home-hero-nov-22.jpg);
+        min-height: 500px;
+        background-size: cover; /* Tỷ lệ ảnh nền */
+        background-position: center;
+        text-align: center;
+    }
+
+    .banner-box .banner .btn-link {
+        position: absolute; /* Đặt vị trí absolute cho nút bấm */
+        bottom:10%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Điều chỉnh vị trí sau khi tính toán */
+        
+    }
+    #card-image:hover {
+        opacity:75%;
+    }
+
+</style>
+
+
+

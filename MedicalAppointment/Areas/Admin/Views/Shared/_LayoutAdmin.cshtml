@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Đăng kí khám bệnh</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/adminsite.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MedicalAppointment.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/calendar.css" asp-append-version="true" />
+
+</head>
+<body>
+    <div class="page">
+        <div class="sidebar">
+            <div class="navtop-row ps-3 navbar navbar-dark ">
+                <div class="container-fluid text-center">
+                    <a class="navbar-brand" href="">
+                        <i class="fa fa-plus px-2 text-danger" aria-hidden="true"></i>Đăng kí trực tiếp
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-scrollable navbar-collapse collapse sidebar-item" id="accordion">
+                <nav class="flex-column text-danger">
+                    <div class="nav-item px-2">
+                        <a class="nav-link" href="~/">
+                            <span class="nav-icon">
+                                <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="px-2">Trang chủ</span>
+                        </a>
+
+                    </div>
+
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý bệnh nhân</span>
+                        </a>
+                        <div id="collapse2" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/User/PatientsIndex">DS bệnh nhân</a>
+                                <a class="px-3" href="~/Admin/Appointment/Index">Phiếu khám bệnh</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý bác sĩ</span>
+                        </a>
+                        <div id="collapse3" class="collapse collapse-list" data-bs-parent="#accordion">
+                            @*<div class="collapse-item">
+                                <a class="px-3" href="~/Admin/User/DoctorIndex">Tất cả bác sĩ</a>
+                            </div>*@
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Doctor/Index">Bác sĩ chuyên khoa</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Shift/Index">Ca trực</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Schedule/Index">Lịch trực</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Chuyên khoa</span>
+                        </a>
+                        <div id="collapse4" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="text-light px-3" href="~/Admin/Specialization/Index">
+                                    Danh sách các khoa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý hệ thống</span>
+                        </a>
+                        <div id="collapse5" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/User/Index">Quản lý tài khoản</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Role/Index">Quản lý vai trò</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="https://console.cloud.google.com/apis/credentials?hl=vi&project=identitytest-414608" target="_blank">Xác thực google</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="https://developers.facebook.com/apps/419197507121686/settings/basic/" target="_blank">Xác thực facebook</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="nav-item px-2" id="logout">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Đăng xuất</span>
+                        </a>
+                        <div id="collapse1" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/#">Thông tin các nhân</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/#">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <main class="col-lg-10 col-md-10 col-ms-12 col-xs-12">
+            <div class="top-row px-4">
+                <partial name="_LoginPartial" class="nav-link" />
+            </div>
+
+            <article class="content px-4 bg-layout">
+                @RenderBody()
+            </article>
+        </main>
+    </div>
+    <footer class="border-top footer text-muted text-center">
+        <div class="container mt-5">
+            &copy; 2024 - DangKiKhamBenh - <a href="https://github.com/NgoPhuocDong">PhuocDongIT</a>
+        </div>
+        <div>Contact:</div>
+        <div>Email: dongatdong@gmail.com</div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/ajax.js" asp-append-version="true"></script>
+    <script src="~/js/calendar.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

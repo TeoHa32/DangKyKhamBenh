@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\MedicalAppointment (2)\\MedicalAppointment\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B136671-4CE6-46A4-BCB0-4A5FFBDF6623}|MedicalAppointment\\MedicalAppointment.csproj|c:\\users\\admin\\documents\\medicalappointment (2)\\medicalappointment\\medicalappointment\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3B136671-4CE6-46A4-BCB0-4A5FFBDF6623}|MedicalAppointment\\MedicalAppointment.csproj|solutionrelative:medicalappointment\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\MedicalAppointment (2)\\MedicalAppointment\\MedicalAppointment\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "MedicalAppointment\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\MedicalAppointment (2)\\MedicalAppointment\\MedicalAppointment\\appsettings.Development.json",
+              "RelativeToolTip": "MedicalAppointment\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-25T09:01:48.908Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

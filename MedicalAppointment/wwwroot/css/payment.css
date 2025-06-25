@@ -1,0 +1,68 @@
+﻿.course_qr {
+    width: 30%;
+    margin: 0px auto;
+    justify-content: center;
+    text-align: center;
+    background-color: #057d83;
+}
+
+    .course_qr img.img_qr {
+        max-width: 70%;
+        display:block;
+        margin: 0px auto;
+    }
+
+button {
+    padding: 10px;
+    font-weight: bold;
+    border: 2px;
+    border-radius: 5px;
+    background-color: deepskyblue;
+    margin-left: 5px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color:white;
+    font-size:20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    transition: opacity 0.3s;
+}
+
+.b {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border: 1px solid black;
+    padding: 20px;
+    animation: slideDown 1s ease forwards;
+    display:none;
+    z-index: 1;
+}
+
+@keyframes slideDown {
+    0% {
+        top: -100%; /* Bắt đầu từ trên cùng */
+    }
+
+    50% {
+        top: 30%; /* Di chuyển tới giữa */
+    }
+
+    100% {
+        top: 50%; /* Dừng ở giữa */
+    }
+}

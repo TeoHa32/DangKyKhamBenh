@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MedicalAppointment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/calendar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MedicalAppointment.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome.min.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="py-3 navbar navbar-expand-sm navbar-toggleable-sm bg-light shadow navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index"><b>Bệnh viện Online</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark btn dropdown-toggle" data-bs-toggle="dropdown">Dịch vụ y tế</a>
+                            <ul class="dropdown-menu mt-2">
+                                <li><a class="dropdown-item py-2" asp-area="" asp-controller="Registration" asp-action="Create">Đăng kí khám bệnh</a></li>
+                                <li><a class="dropdown-item py-2" asp-controller="" asp-action="">Dịch vụ khác</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Chuyên khoa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="Index">Bác sĩ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Hướng dẫn</a>
+                        </li>
+                        
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="Admin" asp-controller="Specialization" asp-action="Index">Admin</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Doctor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" asp-area="" asp-controller="Doctor" asp-action="Redirect">Xếp lịch</a>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="col-md-12 mb-5">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top mt-5">
+        <div class="row p-5 text-center">
+            <div class="col-md-3">
+                <div class="container ">
+                    <h4 class="">Chức năng</h4>
+                    <a href="#">Đăng kí khám bệnh theo ngày</a>
+                    <br />
+                    <a href="#"> Danh sách chuyên khoa</a>
+                    <br />
+                    <a href="#">Danh sách bác sĩ bác sĩ</a>
+                    <br />
+                    <a href="#">Hướng dẫn đăng kí khám</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="container ">
+                    <h4 class=""></h4>
+                    <a href="#">Về bệnh viện</a>
+                    <br />
+                    <a href="#">Đội ngũ bác sĩ &Aacute; nhân viên y tế</a>
+                    <br />
+                    <a href="#">Về chuyên khoa</a>
+                    <br />
+                    <a href="#">Hướng dẫn đăng kí khám</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="container ">
+                    <h4 class="">Chức năng</h4>
+                    <a href="#">Đăng kí khám bệnh theo ngày</a>
+                    <br />
+                    <a href="#"> Danh sách huyên khoa</a>
+                    <br />
+                    <a href="#">Danh sách bác sĩ bác sĩ</a>
+                    <br />
+                    <a href="#">Hướng dẫn đăng kí khám</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="container text-decoration-none">
+                    <h4 class="">Liên hệ</h4>
+                    <a href="#">SĐT: +84 327348068</a>
+                    <br />
+                    <a href="#">Email: taiha201.it@gmail.com</a>
+                    <br />
+                    <a href="#">Facebook: Nguyễn Tài Hà</a>
+                    <br />
+                    <a href="#">Zalo: 0327348068</a>
+                </div>
+            </div>
+            &copy; 2024 - DangKiKhamBenh - <a href="https://github.com/TeoHa32">TeoHa32</a>
+        </div>
+        <div>Contact:</div>
+        <div>Email: taiha201.it@gmail.com</div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/ajax.js" asp-append-version="true"></script>
+
+    @*<script src="~/js/appointment.js" asp-append-version="true"></script>
+    <script src="~/js/calendar.js" asp-append-version="true"></script>*@
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MedicalAppointment.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    int i = 0;
+}
+<h1>Danh sách tài khoản</h1>
+<p>
+    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Thêm mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên bệnh nhân</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>...</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            i++;
+            <tr>
+                <td>@i </td>
+                <td>@user.FullName</td>
+                <td>@String.Format("{0:dd/MM/yyyy}", @user.DateOfBirth)</td>
+                <td>@user.Gender</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Email</td>
+                <td>
+   
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@user.Id">Chi tiết</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,81 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>Hồ sơ</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6 border p-3 mx-auto rounded">
+        @ViewBag.error
+        <form id="profile-form" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="mx-auto mb-3" style="width: 150px; height: 150px;">
+                <div class="text-center position-relative w-100 h-100">
+                    @if (ViewBag.image == null)
+                    {
+                        <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png" class="img-fluid rounded-circle w-100" alt="Ảnh card">
+                    }
+                    else
+                    {
+                        <img src="~/images/profile/@ViewBag.image " class="img-fluid rounded-circle w-100 h-100" alt="Ảnh card">
+                    }
+                    <label for="imageUpload" class="btn btn-secondary btn-sm change-image-button rounded-circle">
+                        <input type="file" id="imageUpload" asp-for="Input.Image" style="display: none;" onchange="submitImage()">
+                        <i class="fa fa-camera"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.FullName" class="form-control" placeholder="Họ và tên" />
+                <label asp-for="Input.FullName" class="form-label">Họ và tên</label>
+                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.DateOfBirth" class="form-control" />
+                <label asp-for="Input.DateOfBirth">Ngày sinh</label>
+                <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.Gender" class="control-label">Giới tính</label>
+                <div class="form-control" autocomplete="gender" aria-required="true" placeholder="Giới tính">
+                    <span class="form-check">
+                        <input type="radio" class="form-check-input" asp-for="Input.Gender" value="Nam">
+                        <label class="form-check-label">Nam</label>
+                    </span>
+                    <span class="form-check">
+                        <input type="radio" class="form-check-input" asp-for="Input.Gender" value="Nữ">
+                        <label class="form-check-label">Nữ</label>
+                    </span>
+                    <span class="form-check">
+                        <input type="radio" class="form-check-input" asp-for="Input.Gender" value="Không xác định">
+                        <label class="form-check-label">Không xác định</label>
+                    </span>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Address" class="form-control" placeholder="Địa chỉ" />
+                <label asp-for="Input.Address" class="form-label">Địa chỉ</label>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Lưu</button>
+        </form>
+
+    </div>
+</div>
+<script src="~/js/ajax.js" asp-append-version="true"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
